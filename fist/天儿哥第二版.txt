@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //第一题
+    //    console.log(num);
+    //    if (!('num' in window)) {
+    //        var num = 100;
+    //    }
+    //    console.log(num);
+    //第二题
+    //    var obj={name:'珠峰',age:7};
+    //    ~function (obj){
+    //        obj.name='中国';
+    //        obj={};
+    //        obj.age=5000;
+    //        console.log(obj);//当前函数下的对象
+    //    }(obj);
+    //    console.log(obj);// 当前的obj是window下面的  所以输出这个对象
+
+    //    第三题
+    //           var name='中国';    //全局变量
+    //            var age=5000;//全局变量
+    //            age=(function(name,age){  //age覆盖了上一个age的值
+    //               name='珠峰';  //全局变量
+    //               age=age||this.age;//  实参传进来判断  左边是true就返回左边的值，反之
+    //               this.name=arguments[0];//让当前的name改变全局的name
+    //               console.log(name,age);//输出当前函数的值  珠峰  5000
+    //           })(name,age);
+    //            console.log(name,age);//  age 让函数代替了所以是undefined  珠峰 undefined
+    //第四题
+    //        var i = 2;
+    //        function fn() {
+    //            i *= 2;
+    //            return function (n) {
+    //                console.log(n * (++i));
+    //            }
+    //        }
+    //        var f = fn();
+    //        f(3);//15
+    //        fn()(3);//33
+    //        f(4);//48
+    //        fn()(4);//100
+//第五题
+//    var num=1;//4//14
+//     var obj={num:2};//22***
+//    obj.fn=(function (num){//3//4//5
+//        this.num=num*2;
+//        num++;
+//        return function(n){//10//20
+//            this.num+=n;//14
+//            num++;//4//5
+//            console.log(num);//4
+//        }
+//
+//    })(obj.num);
+//    var fn=obj.fn;
+//    fn(10);//4
+//    obj.fn(20);//5
+//    console.log(num,obj.num);//14;22
+
+
+
+
+//zuoye
+    //    var i = 2;
+    //    function fn() {
+    //        i *= 2;
+    //        return function (n) {
+    //            console.log(n * (++i));
+    //        }
+    //    }
+    //    var f = fn();
+    //    f(3);
+    //    fn()(3);//->先把fn执行,把执行后的返回结果紧跟着在执行
+    //    f(4);
+    //    fn()(4);
+
+    //->扩展1:
+//    var i = 2;
+//    function fn() {
+//        i *= 2;
+//        return function (n) {
+//            console.log(n * (++i));
+//        }
+//    }
+//    var f = fn();
+//    fn()(3);
+//    f(3);
+//    fn()(4);
+//    f(4);
+
+    //->扩展2:
+//        var i = 3;
+//        function fn() {
+//            i += 2;
+//            return function (n) {
+//                console.log(n * (i++));//->是否加括号不影响++i和i++的区别,i++即使加括号也是先和别人运算,然后在累加的
+//            }
+//        }
+//        var f = fn();
+//        f(3);
+//        fn()(3);
+//        fn()(4);
+//        f(4);
+
+    //->扩展3：
+    var i = 2;
+     function fn(i) {
+     i *= 2;
+     return function (n) {
+     console.log(n * (++i));
+     }
+     }
+     var f = fn(5);
+     f(3);
+     fn(5)(3);
+     f(4);
+     fn(5)(4);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+   body{
+       color: #ffffff;
+   }
+        /*ul,li{*/
+            /*list-style:none;*/
+        /*}*/
+        /*ul{*/
+            /*font-size: 16px;*/
+            /*margin: 30px auto;*/
+            /*width: 600px ;*/
+        /*}*/
+        /*li {*/
+            /*background:yellowgreen;*/
+            /*padding: 10px ;*/
+            /*line-height: 14px;*/
+        /*}*/
+        .bg1{
+            background: red;
+        }
+        .bg2{background: black}
+
+        .hover{
+            background:navy;
+        }
+    </style>
+</head>
+<body>
+<!--<ul>-->
+    <!--<li>在都市里进行灵魂典当</li>-->
+    <!--<li>先转世修仙，再重生回地球</li>-->
+    <!--<li>带着卡牌系统穿到海贼王世界</li>-->
+    <!--<li>「玄幻」齐天大圣给我发红包！</li>-->
+    <!--<li>「玄幻」齐天大圣给我发红包！</li>-->
+    <!--<li>「玄幻」齐天大圣给我发红包！</li>-->
+    <!--<li>「玄幻」看人类如何正面刚天劫！</li>-->
+    <!--<li>「玄幻」世界成了怪物的乐园！</li>-->
+    <!--<li>「玄幻」少年崛起，成为最强教皇！</li>-->
+    <!--<li>「奇幻」携带增益效果穿越巫师世界</li>-->
+<!--</ul>-->
+
+<script>
+    var str = '';
+    for (var i = 1; i <= 9; i++) {
+        str += '<p>';
+        for (var j = 1; j <= i; j++) {
+            str += '<span>'+j + '*' + i + '=' + (j * i)+'</span>' + '&nbsp;&nbsp';
+        }
+        str += '</p>';
+    }
+    document.write(str);
+    var sls=document.getElementsByTagName('span')
+    for(var i=0;i<sls.length;i++){
+        sls[i].className='bg'+(i%2+1);
+        sls[i].onmouseover=function(){
+            this.bg=this.className;
+            this.className="hover";};
+        sls[i].onmouseout=function(){
+            this.className=this.bg;};
+        sls[i].sg=i+1;
+        sls[i].onclick=function(){
+            alert("这是第"+this.sg+"个")}
+    }
+
+</script>
+
+
+</body>
+</html>

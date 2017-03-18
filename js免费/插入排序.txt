@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--ary=[2,1,4,6,5,7,0];-->
+<!--newAry=[2]-->
+<!--i=1 ary[1]=1-->
+<!--1<2  newAry.splice(0,0,ary[1])-->
+<!--newAry=[1,2]  break 跳出循环 length=2-->
+<!--i++ i=2-->
+<!--i=2 ary[2] = 4  j++ j=1-->
+<!--i=2 4 neAry[1]=2 1===newAry.length-1-->
+<!--newAry.push(ary[2]);-->
+<!--newAry=[1,2,4] break;  length=3-->
+<!--i++ i=3  6-->
+<!--j=0 1<6  j++ j=1-->
+<!--j=1 2<6  j++ j=2-->
+<!--j=2 4<6  newAry.push(ary[3]);-->
+<!--newAry=[1,2,4,6] break length=4-->
+<!--i++ i=4 5-->
+<!--j=0  1<5 0==4-1 j++ j=1-->
+<!--j=1  2<5 1==4-1 j++ j=2-->
+<!--j=2  4<5 2==4-1 j++ j=3-->
+<!--j=3  6>5 newAry.splice(3,0,ary[i]) break-->
+<!--newAry=[1,2,,4,5,6]，-->
+<script>
+    var ary=[3,6,5,2,3,1,2,9,2.5];
+    var newAry=[];                  //创建一个新数组，用来放已经比较好的值，然后用他再来和原数组比较
+    newAry.push(ary[0]);            //放第一个值，用他来当第一次比较的初始值
+    for(var i=1;i<ary.length;i++){  //把原数组中所有的值都拿出来和新数组比较
+        for(var j=0;j<newAry.length;j++){   //当原数组中每拿一个值时，都分别和新数组的所有值比较
+            if(ary[i]<newAry[j]){           //当原数组中的值小于新数组中的值时
+                newAry.splice(j,0,ary[i]);  //利用数组的插入，把原数组中的值插入到新数组中，位置在新数组当前值的前面
+                break;      //当插入后就不需要再比较，所有直接跳出，进行最外层循环，从原数组中拿值和新数组中的所有值比较
+            }
+            else
+            {
+            if(j===newAry.length-1){   //如果原数组中的值比新数组中的都大，说明已经比到了最后一项，也就是j值和新数组在最后一项的索引值相等，
+                newAry.push(ary[i]);        //直接添加到新组末尾
+                break;                      //同理，直接跳出循环
+            }}
+        }
+    }
+     document.write(newAry);
+
+</script>
+</body>
+</html>

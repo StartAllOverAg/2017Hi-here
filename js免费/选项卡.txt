@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+            ul {
+                list-style: none;
+            }
+
+        .clearfix:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        body {
+            font: 12px/1.5 "Microsoft YaHei";
+            background-color: #59afe4;
+        }
+
+        .box {
+            margin: 20px auto;
+            border: 1px solid #ebebeb;
+            border-radius: 3px;
+            width: 300px;
+            background-color: #fff;
+        }
+
+        li {
+            float: left;
+            border-bottom: 1px solid #ebebeb;
+            height: 41px;
+            width: 74px;
+            text-align: center;
+            cursor: pointer;
+            line-height: 41px;
+        }
+
+        p {
+            display: none;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        p.cur {
+            display: block;
+        }
+
+        li.cur {
+            border-bottom-color: #ffffff;
+            border-left: 1px solid #ebebeb;
+            border-right: 1px solid #ebebeb;
+            width: 150px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>小组更新</li>
+        <li class="cur">我的小组</li>
+        <li>从未说话</li>
+    </ul>
+    <p class="cur">小组更新</p>
+
+    <p>我的小组</p>
+
+
+    <p>从未说话</p>
+</div>
+<script>
+    //点击一个对象时，所有对象的类名都清除，在将这个类名添加给点击的对象和对象对应的盒子
+    var as = document.getElementsByTagName('li'), dd = document.getElementsByTagName('p');
+    for (var j = 0; j < as.length; j++) {
+        as[j].index = j;//   一个容器    存储长度的容器
+        as[j].onclick = function () {    //点击事件
+            for (var i = 0; i < as.length; i++) {  //循环  清除样式
+                as[i].className = '';
+                dd[i].className = '';
+            }
+            this.className = "cur";
+            dd[this.index].className = "cur"
+        }
+    }
+</script>
+</body>
+</html>

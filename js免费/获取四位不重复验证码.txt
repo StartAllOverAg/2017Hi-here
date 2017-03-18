@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    //有一个装着很多字符的盒子
+    var str="飓风去欧欺负了去发图我骨灰毕竟那凯旋门一个好人方好不好你先于海峰从肯定能到家能查到吗爱的很开心呢";
+    //从这个盒子中随机取出四个字符  获取死个不同的索引
+    var val="";
+    for(var i=0;i<4;i++){
+       var as=Math.round(Math.random()*(str.length-1));//获取一个随机索引
+       var sel=str.charAt(as);//该索引值对应的字符
+        if(val.indexOf(sel)===-1){
+            val+=sel;
+        }else{
+            i--;}
+    }document.write(val);
+
+</script>
+</body>
+</html>

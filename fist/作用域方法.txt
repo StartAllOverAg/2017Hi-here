@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        body{
+            font:12px/1.5 'Microsoft YaHei';
+            background: gold;
+        }
+        .box{
+            margin:30px auto;
+            width:300px;
+            border:1px solid #ebebeb;
+            border-radius: 3px;
+            background: #fff;
+            overflow: hidden;
+        }
+        ul{
+            width:302px;
+            background: #fcfcfc;
+        }
+        li{
+            float: left;
+            height: 41px;
+            width:74px;
+            line-height: 41px;
+            border-bottom:1px solid #ebebeb;
+            text-align: center;
+            cursor: pointer;
+        }
+        .cur{
+            margin-left:-1px;
+            border-bottom-color: #fff;
+            border-left-color: #fcfcfc;
+            border-right-color:#fcfcfc;
+            width:150px;
+            background: #fff;
+
+        }
+        p{
+            display: none;
+            text-align: center;
+            line-height: 40px;
+
+        }
+        .cur{
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <ul class="clearfix">
+        <li  class="cur">小组更新</li>
+        <li >我的小组</li>
+        <li>热门话题</li>
+    </ul>
+    <p  class="cur">小组更新1111</p>
+    <p>我的小组2222 珠峰培训 珠峰培训珠峰 培训右我 不是宵 0  产我 0产0 之</p>
+    <p>热门话题3333</p>
+</div>
+<script>
+    var oUl=document.querySelector('ul');
+    var aLi=document.querySelectorAll('li');
+    var oP=document.querySelectorAll('p');
+    for(var i=0;i<aLi.length;i++){
+        //aLi[i].index=i;
+        //aLi[i].onclick=function(){
+        //for(var j=0;j<aLi.length;j++){
+        //  aLi[j].className='';
+        // oP[j].className='';
+        //}
+        // this.className='cur';
+        //oP[this.index].className='cur';
+        // }
+
+
+
+        //第二种方法
+//        aLi[i].onclick=(function(i){
+//            return function(){
+//                for(var j=0;j<aLi.length;j++){
+//                    aLi[j].className='';
+//                    oP[j].className='';
+//                }
+//                this.className='cur';
+//                oP[i].className='cur';
+//            }
+//        })(i)
+
+
+
+        //第三种方法。这个就是要学会利用闭包，形成多个不销毁的作用域；
+
+        (function(n){
+            aLi[n].onclick=function(){
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className=oP[j].className='';
+                }
+                this.className=oP[n].className='cur';
+            }
+
+        })(i)
+    }
+
+
+</script>
+
+</body>
+</html>

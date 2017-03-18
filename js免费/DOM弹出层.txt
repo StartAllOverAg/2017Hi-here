@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html,body{
+            height: 100%;
+        }
+        button{
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 100px;
+            background-color: #2b7dd1;
+            font-size: 30px;
+            color: #fff;
+        }
+        #box{/*弹出层的样式*/
+            position: absolute;
+            top:0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.5);
+        }
+        #content{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -200px;
+            width: 400px;
+            height: 200px;
+            background-color: #fff;
+        }
+        #span{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #2b7dd1;
+            color: #fff;
+            font-size: 56px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+
+</head>
+<body>
+<button>登录</button>
+<!--<div id="box">-->
+    <!--<p id="content">-->
+        <!--<span id="span"></span>-->
+    <!--</p>-->
+<!--</div>-->
+
+
+<script>
+    var oDiv=document.createElement('div');
+    var oP=document.createElement('p');
+    var oSpan=document.createElement('span');
+    //创建三个元素节点，分别是div p span、
+    var oBtn=document.querySelector('button');//获取button元素对象
+    oDiv.id='box';
+    oP.id='content';
+    oSpan.id='span';//给div p span绑定ID属性
+
+    oSpan.innerText='X';//  向span添加属性
+    oP.appendChild(oSpan);//将span添加到p标签内
+    oDiv.appendChild(oP);//将p添加到div标签内
+
+    oBtn.onclick=function(){//点击按钮出来遮罩层
+        oBtn.parentNode.insertBefore(oDiv,oBtn);//将div添加到button前
+        oSpan.onclick=function(){//点击x时   移出遮罩层
+            oDiv.parentNode.removeChild(oDiv);
+        }
+
+    }
+</script>
+</body>
+</html>

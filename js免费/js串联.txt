@@ -1,0 +1,114 @@
+1、js的命名方式
+什么时候需要命名：变量、对象的自定义属性名
+
+2、js的组成？
+ECMAScript DOM BOM
+
+3、变量的使用？
+变量是用来干神马的
+特点 松散类型
+
+创建  声明 变量名;
+
+4、数据类型
+基本数据类型 number string boolean null undefined
+引用数据类型
+对象数据类型 Array（数组类） Object（对象类）
+函数数据类型 function
+
+5、null和undefined
+null 现在为空 以后在进行添加
+undefined 一直都没有
+
+6、string  变量 用来存储字符
+引号包起来的都叫做字符串
+var abc='';
+console.log('abc');输出字符串'abc'
+console.log(abc);输出变量abc代表的值
+
+7、boolean
+Boolean（value）
+如何判断"一个"值的真假
+0 NaN '' null undefined为假
+！
+！！
+
+以上三种方法的返回值都是布尔类型的值
+
+8、number
+Number() 强制转化其他数据类型为数字
+
+parseFloat（）
+
+parseInt（）
+以上两种方法只能处理字符串和纯数字
+
+以上三种方法的返回值要么是数字要么是NaN
+
+isNaN（）
+判断一个值不是一个数字
+不是数字返回true
+是数字返回false
+
+NaN==NaN   返回false
+
+parseFloat（'.12px'）-- 0.12
+parseInt（'.12px'）-- NaN
+
+parseInt(.12) -- 0
+
+9.Object 对象类
+
+创建
+1）字面量创建
+var obj1={
+    key:value,
+    key1:value1
+}
+2）实例创建
+var obj2=new Object();//只有内置属性
+var obj3=new Object()
+
+Object() 存了一个公式
+
+obj2用的时候 使用的公式和 obj3用时 使用的公式 是 同一个
+
+增 删 改 查
+查
+对象名.属性名
+对象名["属性名"]／／单引号和双引号都可以
+
+改 -- 属性值
+对象名.属性名=新的属性值
+
+删
+
+delete 对象名.属性名
+
+增  自定义属性的过程
+对象名.新的属性名=新的属性值
+
+ps：数字在对象中可以作为属性名 在获取数字为属性名的时候 只能用对象名['']的这种形式
+！[]<=>false
+parseFloat('12px')==!Number({})
+    {}.toString() -- > '[object Object]'
+    Number({}) -- NaN
+    数字==布尔 12==1 false
+
+    ![]==!!0
+    布尔 == 布尔 false==false --》 true
+
+    !{}==''
+    布尔 == 字符串  0==0
+
+    !{}==false
+    布尔==布尔  false==false
+
+    (Number([]+parseInt('.23')))==Number({})
+    数字==数字
+    parseInt('.23') -- NaN
+    NaN==NaN   false
+
+    !0==false
+    布尔==布尔  true == false
+

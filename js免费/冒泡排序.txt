@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr=[1,9,4,5,8,3,7,2,6,3,21];
+    function sum(arr){
+        for(var i=0;i<arr.length-1;i++){//ÂÖÊı
+            for(var j=0;j<arr.length-1-i;j++){//½»»»Î»ÖÃ0
+                if(arr[j]>arr[j+1]){
+                    var tep=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=tep;}
+            }
+        }
+      return(arr);
+    }document.write(sum(arr))
+</script>
+</body>
+</html>

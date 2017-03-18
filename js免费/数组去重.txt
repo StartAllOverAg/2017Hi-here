@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var arr=[1,2,3,3,2,21,2,21,'a',45,8,5,5];
+    //创建一个第三方盒子，将数组的没一项都放进去，每次放置前与第三方盒子内天比较，如果相等，不放  反之
+    //利用对象键值对的方式
+    var abj=[];//空数组   用来盛放变换后的数组
+    for(var i=0;i<arr.length;i++){
+        var sur=arr[i];
+        if(abj[sur]===sur){
+          arr.splice(i,1);
+            i--;
+//
+        }else{
+            abj[sur]=sur;
+        }
+    }
+//    for(var i=0;i<arr.length-1;i++){//轮数
+//        for(var j=0;j<arr.length-1-i;j++){//交换位置0
+//            if(arr[j]>arr[j+1]){
+//                var tep=arr[j];
+//                arr[j]=arr[j+1];
+//                arr[j+1]=tep;}
+//        }
+//
+//    }
+ document.write(arr);
+</script>
+</body>
+</html>

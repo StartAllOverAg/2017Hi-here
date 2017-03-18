@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <ul></ul>
+</div>
+<p></p>
+
+<script>
+ var as=document.createElement('div');//创建节点
+ var asd=document.getElementsByTagName('p')[0];//选取第一个p节点
+ document.body.appendChild(as);
+ as.innerText="as asd";
+ asd.parentNode.insertBefore(as,asd);  //在div之前添加
+// as.appendChild(asd); //调到指定位置
+ console.log(as.cloneNode(true)) ;//克隆
+ var assa=as.firstChild; //获取子节点中的第一个
+ console.log(assa)
+
+//    asd.parentNode.removeChild(asd)//删除节点
+//    console.log(as)
+</script>
+</body>
+</html>
